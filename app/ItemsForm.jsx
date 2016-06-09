@@ -22,12 +22,14 @@ var ItemsForm = React.createClass ({
 			   <div className="row">
                 <form onSubmit={this.submit}>
                     <div className="form-group">
-                        <div className="col-sm-6 col-sm-offset-2">
+                        <div className="col-sm-8 col-sm-offset-2">
                             <input type="text" name="msg" id="msg" className="form-control"></input>
                         </div>
-                        <div className="col-sm-3">
-                            <input type="submit" value="Add New Item" className="btn btn-warning"></input>
+                       <div className="Item-Submit">
+                        <div className="col-sm-2">
+                            <input type="submit" value="Add New Item" className="btn"></input>
                         </div>
+                       </div>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,46 @@
+body {
+	background-color: white;
+}
+
+.panel-default {
+	color: gray;
+	padding-left: 2%;
+	font-family: monospace;
+	border-color: transparent;
+}
+
+.delete-button {
+	text-align: right;
+	padding-right: 2%;
+	font-family: monospace;
+}
+
+.images {
+	width: 300px;
+	height: auto;
+}
+
+.Item-Submit {
+	color: white;
+	background-color: black;
+}
+
+p {
+	font-family: monospace;
+	font-size: 50px;
+	text-align: center;
+}
+
+p2 {
+	text-align: left;
+}
+
+.Posted-On {
+	text-align: left;
+}
+
+.rowTwo {
+  align-content: right;
+	font-family: monospace;
+	padding-bottom: 10%;
+}

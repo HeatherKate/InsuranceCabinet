@@ -13,6 +13,8 @@
 	var config = require('./config.js');
 	var Item = require('./ItemSchema.js');
 	var Picture = require('./PictureSchema.js');
+	var Multer = require ('multer');
+  var upload = Multer({ dest: 'uploads/' });
 
 	var app = express();
 	var PORT = 3000;
@@ -31,6 +33,20 @@
 		resave: true,
 		saveUninitialized: true,
 	}));
+
+
+app.post('/pictures/upload', upload.array('itemPictures', 5), function (req, res, next) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+})
+
+var pictureUpload = upload.fields([{ name: 'itemPictures', maxCount: 5 }])
+app.post('/pictures', pictureUpload, function (req, res, next) {
+  if (!req.body.newPicture) {
+			res.send("item error");
+			return;
+		}
+})
 
 	app.get("/ItemsArray", function (req, res) {
 		//SEARCHES ITEM DATABASE FOR THE SELECTED ITEM ID AND RETURNS ALL VALUES MATCHING
@@ -65,7 +81,7 @@
 			Iid: uuid.v4(),
 			date: new Date(),
 		});
-		// SAVES THE NEW CONSTRUCTOR TO THE DATABASE
+		// SAVES OR DELETES THE NEW CONSTRUCTOR TO THE DATABASE
 		item.save(function (err) {
 			if (err) {
 				res.send(err);
@@ -74,6 +90,23 @@
 			res.send("success");
 		});
 	});
+	
+app.delete('/ItemsArray/:id', function(req, res) {
+  if(!req.params.id) {
+    res.statusCode = 404;
+    return res.send('Error 404: No item found');
+  }  
+
+Item.remove({Iid: req.params.id}, function (err, thing){
+	if (err){
+		console.log (err);
+	}
+	 console.log (thing);
+});
+	console.log(req.params.id);
+  res.json(true);
+});
+	
 
 	app.get("/itemPictures", function (req, res) {
 

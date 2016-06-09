@@ -22,7 +22,11 @@ gulp.task(
 		return gulp
 			.src([
 				'./app/**/*.html',
-				'./app/**/*.css'
+				'./app/**/*.css',
+				'./app/**/*.jpg',
+				'./app/**/*.png',
+				'./app/**/*.JPG',
+			
 			])
 			.pipe(gulp.dest('./public/'))
 	}

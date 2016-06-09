@@ -8,6 +8,7 @@ var PicturesForm = React.createClass ({
 	submit: function (evt){
 		evt.preventDefault();
 		var newPicture =  $('#image').val();
+		console.log(newPicture);
 		var that = this;
 		$.post('/itemPictures', {
 			img: newPicture,
@@ -20,22 +21,21 @@ var PicturesForm = React.createClass ({
 	// REACT RENDERING OF THE PICTURES ONTO THE PAGE
  render: function() {
     return (
-			<div className="row">
+			<div className="rowTwo">
                 <form onSubmit={this.submit}>
-                    <div className="form-group">
-                        <div className="col-sm-6 col-sm-offset-2">
+                    <div className="col-sm-2">
 													<FileInput 
 														   	 id= "image"
 															   name="uploadImage"
 																 accept=".png,.jpg"
 																 placeholder="Upload Image"
 																 className="inputClass" />
-																 <div className="col-sm-3">
-                        </div>
+										</div>
+									<div className="col-sm-9 col-sm-offset-1">
+									 <div className= "btn btn-success"> Submit Image </div>
 									</div>
-							</div>
-				</form>
-			</div>
+							</form>
+				</div>
 		)},
 });
   

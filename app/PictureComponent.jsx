@@ -7,12 +7,14 @@ var PictureComponent = React.createClass ({
 			<div className= "panel panel-success">
 					<div className="panel-body">
 						<div className="items">
-							<h3>{this.props.data.img}</h3></div>
+							<h3>{this.props.data}</h3></div>
+							
+							 <img src = "../Images/television.JPG" className = "images"></img>
 								<div className="postedOn">
 							<p> this picture was added on {this.props.data.date}</p>
 								</div>
-								<div className="id hidden">{this.props.data.Iid}</div>								
-					</div>
+								</div>
+								<div className="id hidden">{this.props.data.Iid}</div>	
 			</div>
 		);
 	}
